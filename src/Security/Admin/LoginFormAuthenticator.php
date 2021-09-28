@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Security;
+namespace App\Security\Admin;
 
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -20,7 +20,7 @@ class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
 {
     use TargetPathTrait;
 
-    public const LOGIN_ROUTE = 'main_login';
+    public const LOGIN_ROUTE = 'admin_security_login';
 
     private UrlGeneratorInterface $urlGenerator;
 
@@ -51,7 +51,7 @@ class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
         }
 
         // For example:
-        return new RedirectResponse($this->urlGenerator->generate('main_profile_index'));
+        return new RedirectResponse($this->urlGenerator->generate('admin_security_login'));
     }
 
     protected function getLoginUrl(Request $request): string
